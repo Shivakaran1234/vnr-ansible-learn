@@ -3,7 +3,7 @@
  hosts: all
  become: yes
  tasks:
-  -name: code to create a file
-  file:
-    path: /opt/india.txt
-    state: touch
+  - name: code to create a file
+    file:
+     path: /opt/india.txt
+     state: touch
