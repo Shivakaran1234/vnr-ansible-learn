@@ -12,5 +12,6 @@
      src: /tmp/apache-tomcat-9.0.96.tar.gz
      dest: /opt/
      remote_src: yes
+     
   - name: Change the name to tomcat
     command: mv /opt/apache-tomcat-9.0.96/opt/tomcat
