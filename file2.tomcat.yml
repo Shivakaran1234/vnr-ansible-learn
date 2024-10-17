@@ -1,17 +1,18 @@
--
- name: playbook on use case of tomcat.
- hosts: all
- become: yes
- tasks:
-  - name: code to install tomcat
-    url: https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.96/bin/apache-tomcat-9.0.96.tar.gz
-    dest: /tmp/apache-tomcat-9.0.96.tar.gz
+- name: Playbook to install Tomcat
+  hosts: all
+  become: yes
+  tasks:
+  
+    - name: Download Tomcat tar.gz file
+      get_url:
+        url: https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.96/bin/apache-tomcat-9.0.96.tar.gz
+        dest: /tmp/apache-tomcat-9.0.96.tar.gz
 
-  - name: extract the tomcat
-    unarchive:
-     src: /tmp/apache-tomcat-9.0.96.tar.gz
-     dest: /opt/
-     remote_src: yes
+    - name: Extract the Tomcat archive
+      unarchive:
+        src: /tmp/apache-tomcat-9.0.96.tar.gz
+        dest: /opt/
+        remote_src: yes
      
-  - name: Change the name to tomcat
-    command: mv /opt/apache-tomcat-9.0.96/opt/tomcat
+    - name: Rename the extracted folder to 'tomcat'
+      command: mv /opt/apache-tomcat-9.0.96 /opt/tomcat
