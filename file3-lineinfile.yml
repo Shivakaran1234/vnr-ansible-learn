@@ -1,0 +1,20 @@
+-
+ name: pb on use case of file and lineinfile modules
+ hosts: all
+ become: yes
+ tasks:
+  - name: code to create a direcory 
+    file: 
+     path: /opt/ts
+     status: directory
+
+  - name: code to create a file
+    file:
+     path: /opt/ts/hyderabad.txt
+     status: touch
+
+  - name: code to write a message
+    copy:
+     dest: /opt/ts/hyderabad.txt
+     content: 'HELLO WORLD'
+     

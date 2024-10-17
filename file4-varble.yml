@@ -1,0 +1,19 @@
+- 
+ name: pb on use case of variable concept
+ hosts: all
+ become: yes
+ vars:
+  a: 10
+  b: 20.50
+  c: "hyderabad"
+  d: "S%=ascindia"
+ tasks:
+  - name:
+    file:
+     path: /opt/variables-sample.txt
+     state: touch
+
+  - name:
+    lineinfile:
+     dest: /opt/variables-sample.txt
+     line: "The value of a is {{a}} the b is {{b}} the c is {{c}} the d is {{d}}"

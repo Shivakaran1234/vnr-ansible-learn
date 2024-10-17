@@ -1,0 +1,14 @@
+-
+ name: pb on use case of yum and service modules
+ hosts: all
+ become: yes
+ tasks:
+  - name: Code to install the Docker
+    yum:
+     name: docker
+     state: latest
+
+  - name: Start the Service docker, if not started.
+    service:
+     name: docker
+     state: started
