@@ -3,6 +3,7 @@
  hosts: all
  become: yes
  tasks:
+ 
   - name: Code to install the Docker
     yum:
      name: docker
